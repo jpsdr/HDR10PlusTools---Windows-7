@@ -1,6 +1,6 @@
 [package]
 name = "hdr10plus"
-version = "2.1.4"
+version = "2.1.5"
 authors = ["quietvoid"]
 edition = "2024"
 rust-version = "1.85.0"
@@ -9,18 +9,18 @@ description = "HDR10+ metadata parsing and writing"
 repository = "https://github.com/quietvoid/hdr10plus_tool/tree/master/hdr10plus"
 
 [dependencies]
-bitvec_helpers = { version = "4.0.0", default-features = false, features = ["bitstream-io"] }
-hevc_parser = { version = "0.6.9", optional = true }
+bitvec_helpers = { version = "4.0.1", default-features = false, features = ["bitstream-io"] }
+hevc_parser = { version = "0.6.10", optional = true }
 
-anyhow = "1.0.98"
-serde = { version = "1.0.219", features = ["derive"], optional = true }
-serde_json = { version = "1.0.140", features = ["preserve_order"], optional = true }
+anyhow = "1.0.100"
+serde = { version = "1.0.228", features = ["derive"], optional = true }
+serde_json = { version = "1.0.148", features = ["preserve_order"], optional = true }
 
 libc = { version = "0.2", optional = true }
 
 [features]
-hevc = ["hevc_parser"]
-json = ["serde", "serde_json"]
+hevc = ["dep:hevc_parser"]
+json = ["dep:serde", "dep:serde_json"]
 capi = ["libc", "json"]
 
 [package.metadata.docs.rs]
